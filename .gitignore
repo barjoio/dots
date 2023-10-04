@@ -18,9 +18,10 @@
 !nvim/**
 nvim/lazy-lock.json
 !README.md
+!screen.png
 !script
 !script/**
-!zellij
-!zellij/**
+!tmux
+!tmux/**
 !zsh
 !zsh/**
