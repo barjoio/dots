@@ -1,0 +1,140 @@
+#
+#   Env
+#
+
+export TERM='xterm-256color'
+export SHELL=/usr/bin/zsh
+export BROWSER=firefox
+export EDITOR=nvim
+
+
+#
+#   Path
+#
+
+export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin"
+
+
+#
+#   Zsh
+#
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git vi-mode zsh-syntax-highlighting)
+
+
+#
+#   Locations
+#
+
+portable='/mnt/Portable'
+bms="$portable/Bookmarks"
+docs="$portable/Documents"
+pics="$portable/Pictures"
+vids="$portable/Videos"
+music="$portable/Music"
+uni="$portable/Uni"
+prog="$portable/Programming"
+nextdir="$portable/Programming/Next"
+notes="$docs/notes.md"
+dls="$HOME/Downloads"
+cfg="$HOME/.config"
+
+alias home='cd "$HOME"'
+alias portable='cd "$portable"'
+alias bms='cd "$bms"'
+alias docs='cd "$docs"'
+alias pics='cd "$pics"'
+alias vids='cd "$vids"'
+alias music='cd "$music"'
+alias prog='cd "$prog"'
+alias dls='cd "$dls"'
+alias cfg='cd "$cfg"'
+
+
+#
+#   Aliases
+#
+
+source ~/.config/zsh/aliasesrc
+
+
+#
+#   Functions
+#
+
+# check updates
+function chkup() {
+  # zypper
+  print -P '%B%F{blue}Zypper:%f%b'
+  zypper lu
+  echo
+  # flatpak
+  print -P '%B%F{blue}Flatpak:%f%b'
+  flatpak_updates=$(flatpak remote-ls --updates)
+  [ "$flatpak_updates" != '' ] && echo $flatpak_updates || echo 'Nothing to update.'
+  echo
+}
+
+# convert to pdf: topdf myfile.docx
+function topdf() {
+  lowriter --convert-to pdf "$@"
+}
+
+# open in browser: goto example1.pdf example2.pdf
+function goto() {
+  for x in "$@"; do
+    $BROWSER "$x"
+  done
+}
+
+# search google in browser: search foo bar baz
+function search() {
+  $BROWSER "https://www.google.co.uk/search?q=$(echo "$@" | sed s/" "/+/g)"
+}
+
+# remove spaces from filenames, replaced with underscores: rmspaces *.pdf
+function rmspaces() {
+  for f in "$@"; do
+    dir=$(dirname "$f")
+    bn=$(basename "$f")
+    bnFormatted=$(echo "$bn" | tr " " _)
+
+    mv "$f" "$dir/$bnFormatted"
+  done
+}
+
+# zip directories: zipdir mydir myotherdir
+function zipdir() {
+  for f in "$@"; do
+    zip -r "$f" "$f"
+  done
+}
+
+# trim video: trim video.mp4 00:00:30 00:00:05 trimmed-video.mp4
+# (filename, start timestamp, length of video, output file)
+function trim() {
+  ffmpeg -ss $2 -i "$1" -t $3 -vcodec copy -acodec copy "$4"
+}
+
+# calculator
+function calc() {
+  echo "$@" | bc -l
+}
+
+# make and change into directory
+function mkcd() {
+  mkdir $1 && cd $1
+}
+
+# Deploy API endpoint locally
+function aws_dev() {
+  echo "Running API on $1"
+  aws-vault exec b2m-dev -- sls offline --httpPort $1 --lambdaPort $(($1 + 1)) --stage dev
+}
+
+# Deploy API endpoint remotely
+function aws_deploy() {
+  aws-vault exec b2m-dev -- serverless deploy --stage dev
+}
+
