@@ -1,9 +1,5 @@
 # dots
 
-```sh
-git clone https://github.com/barjoio/dots.git ~/.config
-```
-
 - opensuse-tumbleweed
 - gnome
     - `https://github.com/ubuntu/gnome-shell-extension-appindicator`
@@ -17,7 +13,10 @@ git clone https://github.com/barjoio/dots.git ~/.config
 - git
     - delta: `zypper in git-delta`
     - `cat ~/.config/git/.gitconfig >> ~/.gitconfig`
+- glow
+    - `zypper in glow`
 - lvim
+    - `https://www.lunarvim.org/docs/installation`
     - `:checkhealth`
 - tmux
     - `zypper in tmux`
