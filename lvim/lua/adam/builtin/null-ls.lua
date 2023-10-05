@@ -1,4 +1,5 @@
 local formatters = require("lvim.lsp.null-ls.formatters")
+local linters = require("lvim.lsp.null-ls.linters")
 
 formatters.setup({
   {
@@ -25,6 +26,22 @@ formatters.setup({
   {
     name = "stylua",
     args = { "--indent-type", "spaces", "--indent-width", "2" },
-    filetypes = { "lua", "luau" },
+    filetypes = {
+      "lua",
+      "luau",
+    },
+  },
+})
+
+linters.setup({
+  {
+    command = "eslint_d",
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+    },
   },
 })

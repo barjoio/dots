@@ -41,7 +41,6 @@ lvim.plugins = {
         symbol_in_winbar = {
           enable = true,
           hide_keyword = true,
-          folder_level = 0,
         },
       })
     end,

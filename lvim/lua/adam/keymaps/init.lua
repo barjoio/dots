@@ -4,11 +4,14 @@ lvim.keys.normal_mode["<F11>"] = ":set relativenumber!<CR><C-l>"
 -- New buffer
 lvim.builtin.which_key.mappings["n"] = { ":enew<CR>", "New buffer" }
 
+-- Open alternative buffer in split (re-open previously closed buffer)
+lvim.builtin.which_key.mappings["t"] = { ":vs#<CR>", "Open alternative buffer" }
+
 -- Minify JSON
 lvim.builtin.which_key.mappings["m"] = { ":%!jq -r tostring -<CR>", "Minify JSON" }
 
--- Open alternative buffer in split (re-open previously closed buffer)
-lvim.builtin.which_key.mappings["t"] = { ":vs#<CR>", "Open alternative buffer" }
+-- Open tmux window in current directory
+lvim.builtin.which_key.mappings["C"] = { ":!tmux new-window -c #:p:h<CR>", "New tmux window" }
 
 -- Find
 lvim.builtin.which_key.mappings["f"] = { ":Telescope git_files<CR>", "Find files" }
