@@ -1,3 +1,4 @@
-require("adam.keymaps")
-require("adam.lazy")
-require("adam.config")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+if not vim.g.vscode then
+  require("config.lazy")
+end
