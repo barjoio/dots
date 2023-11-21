@@ -5,7 +5,7 @@ window:
   padding:
     x: 30
     y: 30
-  # opacity: 0.95
+  opacity: 0.95
   decorations: none
 
 font:
@@ -28,7 +28,7 @@ mouse:
 # Catppuccin
 colors:
     primary:
-        background: "#111128" # base (#1E1E2E)
+        background: "#000000" # base (#1E1E2E) (#111128)
         foreground: "#CDD6F4" # text
         # Bright and dim foreground colors
         dim_foreground: "#CDD6F4" # text
