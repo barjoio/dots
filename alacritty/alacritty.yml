@@ -14,7 +14,7 @@ font:
     style: Regular
   bold:
     style: Bold
-  size: 15
+  size: 12
   offset:
     x: -1
     y: 0
