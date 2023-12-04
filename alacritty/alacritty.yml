@@ -5,7 +5,7 @@ window:
   padding:
     x: 30
     y: 30
-  opacity: 0.98
+  opacity: 0.96
   decorations: none
 
 font:
@@ -14,7 +14,7 @@ font:
     style: Regular
   bold:
     style: Bold
-  size: 12
+  size: 18
   offset:
     x: -1
     y: 0
