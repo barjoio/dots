@@ -37,5 +37,6 @@
 ```
 user=foo
 cat ~/.config/alacritty/alacritty.yml > /c/Users/$user/AppData/Roaming/alacritty/alacritty.yml
-ln -s ~/.config/nvim /c/Users/$user/AppData/Local/nvim
+cp -r ~/.config/nvim /c/Users/$user/AppData/Local
+cp -r ~/.config/bat /c/Users/$user/AppData/Roaming
 ```
