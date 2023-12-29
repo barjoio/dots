@@ -9,6 +9,8 @@
 !git/**
 !glow
 !glow/**
+!LazyVim
+!LazyVim/**
 !lvim
 !lvim/lua
 !lvim/lua/adam
