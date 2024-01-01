@@ -3,8 +3,8 @@ env:
 
 window:
   padding:
-    x: 30
-    y: 30
+    x: 20
+    y: 20
   opacity: 0.96
   decorations: none
 
