@@ -23,7 +23,7 @@ export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin"
 #
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git vi-mode zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 
 
 #

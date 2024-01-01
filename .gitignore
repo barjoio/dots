@@ -11,14 +11,8 @@
 !glow/**
 !LazyVim
 !LazyVim/**
-!lvim
-!lvim/lua
-!lvim/lua/adam
-!lvim/lua/adam/**
-!lvim/config.lua
 !nvim
 !nvim/**
-nvim/lazy-lock.json
 !README.md
 !screen.png
 !script
