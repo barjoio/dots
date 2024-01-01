@@ -16,8 +16,10 @@ return {
         i = {
           ["<C-s>"] = actions.select_vertical,
           ["<C-d>"] = actions.delete_buffer,
-          ["<C-e>"] = actions.preview_scrolling_up,
-          ["<C-y>"] = actions.preview_scrolling_down,
+          ["<Down>"] = actions.preview_scrolling_down,
+          ["<Up>"] = actions.preview_scrolling_up,
+          ["<Left>"] = actions.preview_scrolling_left,
+          ["<Right>"] = actions.preview_scrolling_right,
         },
       },
     },

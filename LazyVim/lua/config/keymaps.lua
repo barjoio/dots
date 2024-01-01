@@ -2,8 +2,9 @@ local wk = require("which-key")
 
 wk.register({
   ["<leader>"] = {
-    j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
+    b = { "<cmd>Neotree buffers<cr>", "Buffer explorer" },
     m = { "<cmd>%!jq -r tostring -<cr>", "Minify JSON" },
     n = { "<cmd>set relativenumber!<cr>", "Toggle relative number" },
+    o = { "<cmd>%bd|e#<cr>", "Close all but current buffer" },
   },
 })

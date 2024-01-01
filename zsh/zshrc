@@ -1,12 +1,14 @@
+alias nvim='NVIM_APPNAME=LazyVim nvim'
+
 #
 #   Env
 #
 
-export TERM='xterm-256color'
-export XDG_CONFIG_HOME="$HOME/.config"
-export SHELL=/usr/bin/zsh
 export BROWSER=firefox
 export EDITOR=nvim
+export SHELL=/usr/bin/zsh
+export TERM='xterm-256color'
+export XDG_CONFIG_HOME="$HOME/.config"
 
 
 #
@@ -41,7 +43,6 @@ notes="$docs/notes.md"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
 
-alias home='cd "$HOME"'
 alias portable='cd "$portable"'
 alias bms='cd "$bms"'
 alias docs='cd "$docs"'
@@ -49,6 +50,7 @@ alias pics='cd "$pics"'
 alias vids='cd "$vids"'
 alias music='cd "$music"'
 alias prog='cd "$prog"'
+alias notes='nvim "$notes"'
 alias dls='cd "$dls"'
 alias cfg='cd "$cfg"'
 
@@ -57,7 +59,7 @@ alias cfg='cd "$cfg"'
 #   Aliases
 #
 
-source ~/.config/zsh/aliasesrc
+source ~/.config/zsh/aliases.sh
 
 
 #

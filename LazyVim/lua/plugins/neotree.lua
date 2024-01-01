@@ -1,22 +1,27 @@
+local function neo_tree_close()
+  require("neo-tree.command").execute({ action = "close" })
+end
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  keys = {
-    { "<leader>fb", "<cmd>echo 'hello'<cr>", "Say hello" },
-  },
   opts = {
     event_handlers = {
       {
         event = "file_opened",
-        handler = function()
-          require("neo-tree.command").execute({ action = "close" })
-        end,
+        handler = neo_tree_close,
       },
     },
-    filesystem = {
+    window = {
+      mappings = {
+        ["/"] = false,
+        ["?"] = false,
+        ["h"] = "show_help",
+      },
+    },
+    buffers = {
       window = {
         mappings = {
-          ["/"] = false,
-          ["?"] = false,
+          ["<leader>b"] = { neo_tree_close, desc = "close" },
         },
       },
     },

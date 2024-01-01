@@ -1,24 +1,22 @@
 return {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      transparent_background = true,
+    },
+  },
   -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
+  --   "Mofiqul/vscode.nvim",
   --   opts = {
-  --     transparent_background = true,
+  --     transparent = true,
   --   },
   -- },
   {
-    "Mofiqul/vscode.nvim",
-    config = function()
-      require("vscode").setup({
-        transparent = true,
-      })
-    end,
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "catppuccin",
-      colorscheme = "vscode",
+      colorscheme = "catppuccin",
+      -- colorscheme = "vscode",
     },
   },
 }

@@ -25,6 +25,10 @@ shell:
 mouse:
   hide_when_typing: true
 
+# colors:
+#   primary:
+#     background: "#000000" # base (#1E1E2E) (#111128)
+
 # Catppuccin
 colors:
   primary:
