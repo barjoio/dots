@@ -6,5 +6,7 @@ wk.register({
     m = { "<cmd>%!jq -r tostring -<cr>", "Minify JSON" },
     n = { "<cmd>set relativenumber!<cr>", "Toggle relative number" },
     o = { "<cmd>%bd|e#<cr>", "Close all but current buffer" },
+    ["gd"] = { "<cmd>DiffviewOpen<cr>", "Open git diff editor" },
+    ["gt"] = { "<cmd>DiffviewToggleFiles<cr>", "Toggle files in diff editor" },
   },
 })
