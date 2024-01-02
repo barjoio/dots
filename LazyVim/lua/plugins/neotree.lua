@@ -16,6 +16,8 @@ return {
         ["/"] = false,
         ["?"] = false,
         ["h"] = "show_help",
+        ["s"] = false,
+        ["v"] = "open_vsplit",
       },
     },
     buffers = {
