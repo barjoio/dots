@@ -1,4 +1,10 @@
-alias nvim='NVIM_APPNAME=LazyVim nvim'
+#
+#   Zsh
+#
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git zsh-syntax-highlighting)
+
 
 #
 #   Env
@@ -9,6 +15,7 @@ export EDITOR=nvim
 export SHELL=/usr/bin/zsh
 export TERM='xterm-256color'
 export XDG_CONFIG_HOME="$HOME/.config"
+export FZF_DEFAULT_OPTS=--reverse
 
 
 #
@@ -16,43 +23,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 #
 
 export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin"
-
-
-#
-#   Zsh
-#
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git zsh-syntax-highlighting)
-
-
-#
-#   Locations
-#
-
-portable='/mnt/Portable'
-bms="$portable/Bookmarks"
-docs="$portable/Documents"
-pics="$portable/Pictures"
-vids="$portable/Videos"
-music="$portable/Music"
-uni="$portable/Uni"
-prog="$portable/Programming"
-nextdir="$portable/Programming/Next"
-notes="$docs/notes.md"
-dls="$HOME/Downloads"
-cfg="$HOME/.config"
-
-alias portable='cd "$portable"'
-alias bms='cd "$bms"'
-alias docs='cd "$docs"'
-alias pics='cd "$pics"'
-alias vids='cd "$vids"'
-alias music='cd "$music"'
-alias prog='cd "$prog"'
-alias notes='nvim "$notes"'
-alias dls='cd "$dls"'
-alias cfg='cd "$cfg"'
 
 
 #
@@ -65,6 +35,10 @@ source ~/.config/zsh/aliases.sh
 #
 #   Functions
 #
+
+function goto() {
+  cd "$(cat ~/locations.txt | fzf --delimiter / --with-nth -1)"
+}
 
 # check updates
 function chkup() {
@@ -82,13 +56,6 @@ function chkup() {
 # convert to pdf: topdf myfile.docx
 function topdf() {
   lowriter --convert-to pdf "$@"
-}
-
-# open in browser: goto example1.pdf example2.pdf
-function goto() {
-  for x in "$@"; do
-    $BROWSER "$x"
-  done
 }
 
 # search google in browser: search foo bar baz
@@ -114,30 +81,7 @@ function zipdir() {
   done
 }
 
-# trim video: trim video.mp4 00:00:30 00:00:05 trimmed-video.mp4
-# (filename, start timestamp, length of video, output file)
-function trim() {
-  ffmpeg -ss $2 -i "$1" -t $3 -vcodec copy -acodec copy "$4"
-}
-
-# calculator
-function calc() {
-  echo "$@" | bc -l
-}
-
 # make and change into directory
 function mkcd() {
   mkdir $1 && cd $1
 }
-
-# Deploy API endpoint locally
-function aws_dev() {
-  echo "Running API on $1"
-  aws-vault exec b2m-dev -- sls offline --httpPort $1 --lambdaPort $(($1 + 1)) --stage dev
-}
-
-# Deploy API endpoint remotely
-function aws_deploy() {
-  aws-vault exec b2m-dev -- serverless deploy --stage dev
-}
-

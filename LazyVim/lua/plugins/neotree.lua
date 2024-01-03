@@ -23,7 +23,7 @@ return {
     buffers = {
       window = {
         mappings = {
-          ["<leader>b"] = { neo_tree_close, desc = "close" },
+          ["<leader>be"] = { neo_tree_close, desc = "close" },
         },
       },
     },
