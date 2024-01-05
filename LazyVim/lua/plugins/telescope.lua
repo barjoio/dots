@@ -21,16 +21,11 @@ return {
           ["<Right>"] = actions.preview_scrolling_right,
         },
       },
+      layout_strategy = "vertical",
     },
     pickers = {
       lsp_references = {
         show_line = false,
-        layout_strategy = "vertical",
-        layout_config = {
-          vertical = {
-            preview_cutoff = 0,
-          },
-        },
       },
     },
   },
