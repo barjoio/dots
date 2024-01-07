@@ -19,7 +19,6 @@
   - `zypper in tmux`
   - tpm: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - zsh
-
   - oh-my-zsh: `https://ohmyz.sh/#install`
   - nerd fonts: `https://www.nerdfonts.com/font-downloads`
   - powerlevel10k:
@@ -35,12 +34,3 @@
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   ```
-
-## Windows setup
-
-```sh
-user=foo
-cat ~/.config/alacritty/alacritty.yml > /c/Users/$user/AppData/Roaming/alacritty/alacritty.yml
-cp -r ~/.config/nvim /c/Users/$user/AppData/Local
-cp -r ~/.config/bat /c/Users/$user/AppData/Roaming
-```
