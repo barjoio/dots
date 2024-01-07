@@ -20,5 +20,7 @@
 !tmux
 !tmux/**
 !wall.jpeg
+!wezterm
+!wezterm/**
 !zsh
 !zsh/**
